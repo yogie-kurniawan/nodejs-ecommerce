@@ -1,4 +1,4 @@
-E-Commerce Website built with Node.js, Express.js, and MongoDB 
+E-Commerce Website built with Node.js, Express.js, ejs, and MongoDB 
 
 How to run this project?
 1. Run "npm install" or "npm i" to install all required packages
