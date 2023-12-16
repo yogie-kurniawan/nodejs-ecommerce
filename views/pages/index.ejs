@@ -1,0 +1,126 @@
+<main>
+  <section class="hero">
+    <div class="hero-container container">
+      <div class="hero-text">
+        <h1 class="hero-title">Lorem ipsum, dolor sit amet consectetur.</h3>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat expedita facilis mollitia veniam, nihil repellendus.</p>
+        <a href="/products" class="hero-btn btn btn-primary">Shop Now</a>
+      </div>
+      <div class="hero-img">
+        <img src="./assets/img/hero/hero.png" alt="hero-img">
+      </div>
+    </div>
+  </section>
+  <section class="products-showcase section" id="products-showcase">
+    <div class="products-showcase-container container">
+      <div class="products-showcase-content">
+        <h1 class="section-title">Popular</h1>
+        <div class="product-items">
+         <% if(typeof popularProducts != 'undefined' && popularProducts.count > 0) { %>
+            <% popularProducts.forEach((product) => { %>
+              <div class="product-item">
+                <a href="">
+                  <div class="product-image">
+                    <img
+                      src="./assets/img/product/<%= product.img %>"
+                      alt=""
+                      class="product-img"
+                    />
+                  </div>
+                  <div class="product-text">
+                    <h3 class="product-name"><%= product.name; %></h4>
+                    <% if(product.sale_price){ %>
+                    <h3 class="product-price">$<%= product.sale_price %></h5>
+                    <small class="strike-text">$<%= product.price %></small>
+                    <% } else {%>
+                    <h3 class="product-price">$<%= product.price %></h5>
+                    <% } %>
+                    <form action="/add-to-cart" method="POST">
+                      <input
+                        type="hidden"
+                        name="productId"
+                        value="<%= product.id %>"
+                      />
+                      <input type="hidden" name="qtyRequest" value="1" />
+                      <input
+                        type="submit"
+                        class="btn btn-outline-primary product-btn"
+                        value="Add to cart"
+                      />
+                    </form>
+                  </div>
+                </a>
+              </div>
+              <% }) %>
+           <% } else { %>
+              <div>
+                No products-showcase.
+              </div>
+            <%  }%>
+        </div>
+        <div class="more">
+          <a href="/products" class="btn btn-primary">See More...</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="products-showcase section" id="products-showcase">
+    <div class="products-showcase-container container">
+      <div class="products-showcase-content">
+        <h1 class="section-title">New Products</h1>
+        <div class="product-items">
+         <% if(typeof newProducts != 'undefined' && newProducts.count > 0) { %>
+            <% newProducts.forEach((product) => { %>
+              <div class="product-item">
+                <a href="">
+                  <div class="product-image">
+                    <img
+                      src="./assets/img/product/<%= product.img %>"
+                      alt=""
+                      class="product-img"
+                    />
+                  </div>
+                  <div class="product-text">
+                    <h3 class="product-name"><%= product.name; %></h4>
+                    <% if(product.sale_price){ %>
+                    <h3 class="product-price">$<%= product.sale_price %></h5>
+                    <small class="strike-text">$<%= product.price %></small>
+                    <% } else {%>
+                    <h3 class="product-price">$<%= product.price %></h5>
+                    <% } %>
+                    <form action="/add-to-cart" method="POST">
+                      <input
+                        type="hidden"
+                        name="productId"
+                        value="<%= product.id %>"
+                      />
+                      <input type="hidden" name="qtyRequest" value="1" />
+                      <input
+                        type="submit"
+                        class="btn btn-outline-primary product-btn"
+                        value="Add to cart"
+                      />
+                    </form>
+                  </div>
+                </a>
+              </div>
+              <% }) %>
+           <% } else { %>
+              <div>
+                No products-showcase.
+              </div>
+            <%  }%>
+        </div>
+        <div class="more">
+          <a href="/products" class="btn btn-primary">See More...</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="services">
+    <div class="services-container container">
+      <div class="services-content"></div>
+    </div>
+  </section>
+</main>
+

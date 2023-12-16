@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/signin.css" />
+  </head>
+  <body>
+    <div class="login-wrapper">
+      <h1 class="login-title">Sign Up</h1>
+      <form class="login-form" action="/signup" method="POST">
+        <div class="form-control">
+          <label class="label-control">Name</label>
+          <input
+            type="text"
+            name="name"
+            class="input-control"
+            placeholder="Enter name..."
+            value="<%= typeof name != 'undefined' ? name : '' %>"
+          />
+        </div>
+        <div class="form-control">
+          <label class="label-control">Username</label>
+          <input
+            type="text"
+            name="username"
+            class="input-control"
+            placeholder="Enter username..."
+            value="<%= typeof username != 'undefined' ? username : '' %>"
+          />
+        </div>
+        <div class="form-control">
+          <label class="label-control">Email</label>
+          <input
+            type="text"
+            name="email"
+            class="input-control"
+            placeholder="Enter email..."
+            value="<%= typeof email != 'undefined' ? email : '' %>"
+          />
+        </div>
+        <div class="form-control">
+          <label class="label-control">Password</label>
+          <input
+            type="password"
+            name="password"
+            class="input-control"
+            placeholder="Enter Password"
+            value="<%= typeof password != 'undefined' ? password : '' %>"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary submit">Submit</button>
+        <div>
+          <p>Already have an account? <a href="/signup">Sign In</a> here</p>
+        </div>
+      </form>
+    </div>
+    <%- include('../partials/messages.ejs') %>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<main>
+  <section id="cart" class="cart section">
+    <div class="cart-container container">
+      <h3 class="cart-title">Your Cart</h3>
+      <div class="cart-content">
+        <%if(locals.user) {%> <% if(typeof cart != 'undefined' && cart.length >
+        0) {%>
+        <div class="cart-items flex">
+          <%cart.forEach(item => { %>
+          <div class="cart-item flex">
+            <div class="cart-img">
+              <img src="./assets/img/product/<%= item.image %>" alt="" />
+            </div>
+            <div class="cart-desc">
+              <div class="cart-text">
+                <p class="product-name"><%= item.name %></p>
+                <% if(item.sale_price) { %>
+                <p class="product-price">$<%= item.sale_price %></p>
+                <small class="strike-text">$<%= item.price %></small>
+                <br />
+                <% } else { %>
+                <p class="product-price">$<%= item.price %></p>
+                <% } %>
+                <small><%= item.qtyRequest %>x</small>
+                <br />
+                <% if(item.sale_price) { %>
+                <small>$<%= item.qtyRequest * item.sale_price %></small>
+                <% } else { %>
+                <small>$<%= item.qtyRequest * item.price %></small>
+                <% } %>
+              </div>
+            </div>
+            <div class="cart-action flex">
+              <div class="qty-control flex">
+                <button class="qty-btn">
+                  <i class="bx bx-chevron-up"></i>
+                </button>
+                <input type="number" class="qty-input" />
+                <button class="qty-btn">
+                  <i class="bx bx-chevron-down"></i>
+                </button>
+              </div>
+              <form action="/remove-product" method="POST">
+                <input type="hidden" name="id" value="<%= item.id %>" />
+                <button type="submit">Remove</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="cart-subtotal">
+          <h3>Subtotal : $<%= total %></h3>
+        </div>
+        <% }) %> <% } else { %>
+        <p>Your cart is empty.</p>
+        <% } %> <% } else {%>
+        <p>Your cart is empty.</p>
+        <% } %>
+      </div>
+    </div>
+  </section>
+</main>

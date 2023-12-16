@@ -1,0 +1,47 @@
+<header class="header">
+  <div class="top-header">
+    <div class="container">
+      <div class="left">
+        <p>Welcome to my shop</p>
+      </div>
+      <div class="right">
+        <p><a href="/signin">Sign In</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-header">
+    <nav class="navbar">
+      <div class="nav-center container">
+        <div class="logo-container">
+          <a href="/" class="logo">Logo</a>
+        </div>
+        <div class="menu-container open">
+          <button class="close-btn"><i class="bx bx-x"></i></button>
+          <ul class="menu-list">
+            <li class="menu-item <%= locals.page == 'home' ? 'active' : '' %>">
+              <a href="/" class="menu-link">Home</a>
+            </li>
+            <li
+              class="menu-item <%= locals.page == 'products' ? 'active' : '' %>"
+            >
+              <a href="/products" class="menu-link">Products</a>
+            </li>
+            <li
+              class="menu-item <%= locals.page == 'contacts' ? 'active' : '' %>"
+            >
+              <a href="#" class="menu-link">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <div class="menu-action">
+          <div class="cart-container" class="cart-container">
+            <a href="/carts" class="cart"><i class="bx bx-cart"></i></a>
+          </div>
+        </div>
+        <button class="toggle-btn">
+          <i class="bx bx-menu"></i>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>

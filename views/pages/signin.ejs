@@ -1,0 +1,33 @@
+<main>
+  <div class="signin-container container">
+    <div class="signin-wrapper">
+      <h1 class="signin-title">Sign In</h1>
+      <form class="signin-form" action="/signin" method="POST">
+        <div class="form-control">
+          <label class="label-control">Username</label>
+          <input
+            type="text"
+            name="username"
+            class="input-control"
+            placeholder="Enter username..."
+            value="<%= typeof locals.username != 'undefined' ? username : '' %>"
+          />
+        </div>
+        <div class="form-control">
+          <label class="label-control">Password</label>
+          <input
+            type="password"
+            name="password"
+            class="input-control"
+            placeholder="Enter"
+            value="<%= typeof locals.password != 'undefined' ? password : '' %>"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary submit">Submit</button>
+        <div class="redirect-text">
+          <p>Haven't had an account? <a href="/signup">Sign up</a> here</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>

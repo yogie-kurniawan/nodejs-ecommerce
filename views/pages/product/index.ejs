@@ -1,0 +1,61 @@
+<main>
+  <section class="products section">
+    <div class="container">
+      <div class="product-categories">
+        <h3 class="categorie-title">Categories</h3>
+        <ul class="categorie-list">
+          <%if( categories != 'undefined') {%>
+            <% categories.forEach((category) => { %>
+              <li class="<%= category == cat ? 'active' : '' %>"><a href="/products?category=<%= category %>"><%= category %></a></li>
+            <% }) %>
+          <% } %>
+        </ul>
+      </div>
+      <div class="product-products">
+        <div class="product-items">
+          <% if(typeof products != 'undefined' && products.count > 0) { %>
+             <% products.forEach((product) => { %>
+               <div class="product-item">
+                 <a href="">
+                   <div class="product-image">
+                     <img
+                       src="./assets/img/product/<%= product.img %>"
+                       alt=""
+                       class="product-img"
+                     />
+                   </div>
+                   <div class="product-text">
+                     <h3 class="product-name"><%= product.name; %></h4>
+                     <% if(product.sale_price){ %>
+                     <h3 class="product-price">$<%= product.sale_price %></h5>
+                     <small class="strike-text">$<%= product.price %></small>
+                     <% } else {%>
+                     <h3 class="product-price">$<%= product.price %></h5>
+                     <% } %>
+                     <form action="/carts/add" method="POST">
+                       <input
+                         type="hidden"
+                         name="productId"
+                         value="<%= product.id %>"
+                       />
+                       <input type="hidden" name="qtyRequest" value="1" />
+                       <input
+                         type="submit"
+                         class="btn btn-outline-primary product-btn"
+                         value="Add to cart"
+                       />
+                     </form>
+                   </div>
+                 </a>
+               </div>
+               <% }) %>
+            <% } else { %>
+               <div>
+                 No Products
+               </div>
+             <%  }%>
+         </div>
+      </div>
+    </div>
+  </section>
+</main>
