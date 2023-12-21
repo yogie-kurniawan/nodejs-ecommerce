@@ -8,6 +8,7 @@ const ejs = require("ejs");
 const fileUpload = require("express-fileupload");
 const expressLayouts = require("express-ejs-layouts");
 const path = require("path");
+const flash = require("connect-flash");
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
@@ -30,10 +31,10 @@ app.use(
 // Cookie
 app.use(cookie());
 
+app.use(flash());
+
 app.use(function (req, res, next) {
   res.locals.user = req.session.user;
-  res.locals.success = req.session.success;
-  res.locals.error = req.session.error;
   next();
 });
 
